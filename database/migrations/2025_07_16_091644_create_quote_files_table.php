@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quote_logs', function (Blueprint $table) {
+        Schema::create('quote_files', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('quote_id')->constrained();
-            $table->foreignId('user_id')->constrained();
-            $table->string('action', 50);
-            $table->string('note', 255)->nullable();
+            $table->foreignId('quote_id')->constrained('quotes');
+            $table->string('file_path', 255);
+            $table->string('file_name', 255);
+            $table->string('file_type', 100);
+            $table->foreignId('uploaded_by')->constrained('users');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('quote_logs');
+        Schema::dropIfExists('quote_files');
     }
 };

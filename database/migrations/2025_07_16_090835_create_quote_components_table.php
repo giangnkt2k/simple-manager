@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('quote_components', function (Blueprint $table) {
-        $table->id();
-        $table->foreignId('quote_id')->constrained();
-        $table->string('name', 255);
-        $table->string('description', 255)->nullable();
-        $table->unsignedInteger('quantity');
-        $table->decimal('unit_price', 15, 2); 
-        $table->decimal('total_price', 15, 2);
-        $table->unsignedInteger('sort_order')->default(0);
-        $table->timestamps();
+            $table->id();
+            $table->foreignId('quote_id')->constrained();
+            $table->string('name', 255);
+            $table->string('description', 255)->nullable();
+            $table->unsignedInteger('quantity');
+            $table->decimal('unit_price', 15, 2);
+            $table->decimal('total_price', 15, 2);
+            $table->unsignedInteger('sort_order')->default(0);
+            $table->timestamps();
         });
     }
 
