@@ -35,4 +35,10 @@ Route::middleware([
      Route::get('/quote', function () {
         return Inertia::render('Quote/index');
     })->name('quote');
+         Route::get('/customers', function () {
+        return Inertia::render('Customer/index');
+    })->name('customers');
+     Route::get('/customers/create', function () {
+        return Inertia::render('Customer/create');
+    })->name('customers.create');
 });
