@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name', 255);
             $table->string('description', 255)->nullable();
-            $table->json('data_json'); // Sử dụng kiểu json đúng hơn cho dữ liệu JSON
-            $table->foreignId('created_by')->constrained('users'); // Khóa ngoại rõ ràng hơn
+            $table->json('data_json');
+            $table->foreignId('created_by')->constrained('users');
             $table->timestamps();
         });
     }
